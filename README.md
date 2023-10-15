@@ -1,4 +1,4 @@
-# pokedex
+# 🌟 Flutter Pokédex 🌟
 
 Un elegante y moderno Pokédex construido con Flutter. Explora, descubre y aprende sobre tus Pokémon favoritos con una interfaz intuitiva y atractiva. ¡Perfecto para aficionados y maestros Pokémon por igual! Dale vida a tu aventura Pokémon con esta aplicación interactiva.
 
