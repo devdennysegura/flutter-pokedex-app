@@ -26,6 +26,28 @@ class PokeApiService {
     }
   }
 
+  Future<PokedexPage> getPokedexNextPage(String url) async {
+    final String pokemonPath = '$_basePath/pokemon/';
+    final response = await http.get(Uri.parse(url));
+    if (response.statusCode == 200) {
+      Map<String, dynamic> rawResponse =
+          jsonDecode(response.body) as Map<String, dynamic>;
+      PokedexPage pokedex = PokedexPage.fromJson(rawResponse);
+      List<Map<String, dynamic>> rawResults =
+          List<Map<String, dynamic>>.from(rawResponse['results']);
+      pokedex.results = await Future.wait(
+        rawResults.map(
+          (result) => getPokemon(
+            result['url'].toString().replaceFirst(pokemonPath, ''),
+          ),
+        ),
+      );
+      return pokedex;
+    } else {
+      throw Exception('Error al obtener el Pokedex - NextUrl');
+    }
+  }
+
   Future<Pokemon> getPokemon(String name) async {
     final String url = '$_basePath/pokemon/$name';
     final response = await http.get(Uri.parse(url));
@@ -33,7 +55,7 @@ class PokeApiService {
     if (response.statusCode == 200) {
       return Pokemon.fromJson(jsonDecode(response.body));
     } else {
-      throw Exception('Error al obtener el Pokémon: ${response.statusCode}');
+      throw Exception('Error al obtener el Pokémon: $name');
     }
   }
 
@@ -105,7 +127,7 @@ class PokeApiService {
             ..genderName = genderName)
           .toList();
     } else {
-      throw Exception('Error al obtener el Pokémon: ${response.statusCode}');
+      throw Exception('Error al obtener el género: $genderName');
     }
   }
 

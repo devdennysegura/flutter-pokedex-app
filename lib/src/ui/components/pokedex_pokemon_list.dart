@@ -13,9 +13,7 @@ class _PokedexPokemonListState extends ConsumerState<PokedexPokemonList> {
   @override
   void initState() {
     controller = ScrollController();
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      controller.addListener(pagination);
-    });
+    controller.addListener(pagination);
     super.initState();
   }
 
@@ -28,7 +26,6 @@ class _PokedexPokemonListState extends ConsumerState<PokedexPokemonList> {
   void pagination() {
     if (controller.position.pixels / controller.position.maxScrollExtent >
         0.7) {
-      print('nuevos mas o menos');
       ref.read(pokemonProvider.notifier).fetchPokemons();
     }
   }
@@ -37,17 +34,13 @@ class _PokedexPokemonListState extends ConsumerState<PokedexPokemonList> {
   Widget build(BuildContext context) {
     List<Pokemon> pokemons = ref.watch(pokemonProvider);
     return ListView.separated(
+      controller: controller,
+      padding: const EdgeInsets.only(bottom: 40),
       itemBuilder: (context, index) => Padding(
-        padding: const EdgeInsets.only(bottom: 40.0),
-        child: Card(
-          elevation: 5,
-          child: SizedBox(
-            height: 160,
-            child: Center(child: Text(pokemons[index].name)),
-          ),
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: PokemonCard(pokemons[index]),
       ),
-      separatorBuilder: (context, index) => const SizedBox(height: 40),
+      separatorBuilder: (context, index) => const SizedBox(height: 20),
       itemCount: pokemons.length,
     );
   }

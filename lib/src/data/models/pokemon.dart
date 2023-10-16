@@ -56,6 +56,10 @@ class Pokemon with PokemonAttributesMixin {
             )
             .toList();
 
+  String get formattedNumber {
+    return '#${id.toString().padLeft(3, '0')}';
+  }
+
   @override
   int get hashCode => id.hashCode ^ name.hashCode;
 

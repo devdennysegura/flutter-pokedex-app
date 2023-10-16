@@ -10,9 +10,14 @@ class PokemonNotifier extends StateNotifier<List<Pokemon>> {
     if (isLoading) return;
     isLoading = true;
     try {
-      PokedexPage data = await PokeApiService().getPokedex();
-      nextPage = data.next;
-      state = [...state, ...(data.results ?? <Pokemon>[])];
+      PokedexPage? data;
+      if (state.isEmpty) {
+        data = await PokeApiService().getPokedex();
+      } else if (nextPage != null) {
+        data = await PokeApiService().getPokedexNextPage(nextPage!);
+      }
+      nextPage = data?.next;
+      state = [...state, ...(data?.results ?? <Pokemon>[])];
     } catch (e) {
       print(e);
     } finally {
