@@ -12,7 +12,7 @@ class PokeApiService {
           jsonDecode(response.body) as Map<String, dynamic>;
       PokedexPage pokedex = PokedexPage.fromJson(rawResponse);
       List<Map<String, dynamic>> rawResults =
-          rawResponse['results'] as List<Map<String, dynamic>>;
+          List<Map<String, dynamic>>.from(rawResponse['results']);
       pokedex.results = await Future.wait(
         rawResults.map(
           (result) => getPokemon(
@@ -65,7 +65,7 @@ class PokeApiService {
     return null;
   }
 
-  Future<dynamic> getCombinedPokemonGender() async {
+  Future<Map<String, Map<String, String>>> getCombinedPokemonGender() async {
     var (female, male) = await _getPokemonGenders();
     List<PokemonGenderRate> genders = [...female, ...male];
     final Map<String, List<PokemonGenderRate>> groupedMap = {};
@@ -85,7 +85,7 @@ class PokeApiService {
       );
       result[key] = genderCalculator(female?.rate ?? 0, male?.rate ?? 0);
     });
-    return result;
+    return Map<String, Map<String, String>>.from(result);
   }
 
   Future<(List<PokemonGenderRate> x, List<PokemonGenderRate> y)>

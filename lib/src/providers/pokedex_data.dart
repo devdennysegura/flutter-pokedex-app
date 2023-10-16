@@ -14,7 +14,7 @@ class PokemonNotifier extends StateNotifier<List<Pokemon>> {
       nextPage = data.next;
       state = [...state, ...(data.results ?? <Pokemon>[])];
     } catch (e) {
-      debugPrint((e as dynamic)['message'] as String);
+      print(e);
     } finally {
       isLoading = false;
     }
