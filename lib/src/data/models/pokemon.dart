@@ -9,7 +9,8 @@ class Pokemon with PokemonAttributesMixin {
   final Map<String, int> stats;
   final PokemonInfo info;
   final List<PokeTypes> types;
-  final String specieUrl;
+  final String? specieUrl;
+  List<Pokemon?>? evolutionChain;
 
   Pokemon({
     required this.name,

@@ -3,6 +3,7 @@ part of com.devdennysegura.pokedex.data.models;
 class PokemonGenderRate {
   final String name;
   final int rate;
+  String? genderName;
 
   PokemonGenderRate({required this.name, required this.rate});
 

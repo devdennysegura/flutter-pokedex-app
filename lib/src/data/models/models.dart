@@ -5,6 +5,7 @@ import 'package:pokedex/src/constants/constants.dart';
 
 import '../mixin/mixin.dart';
 
+part 'pokedex_page_response.dart';
 part 'pokemon.dart';
 part 'pokemon_gender_rate.dart';
 part 'pokemon_info.dart';
