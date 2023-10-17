@@ -5,4 +5,5 @@ import '../data/models/models.dart';
 import '../data/services/services.dart';
 
 part 'pokedex_data.dart';
+part 'pokemon_evolution_chain.dart';
 part 'pokemon_genders.dart';

@@ -69,7 +69,7 @@ class PokeApiService {
         final String url = specieRawResponse['evolution_chain']['url'];
         final response = await http.get(Uri.parse(url));
         if (response.statusCode == 200) {
-          Map<String, dynamic> chain = jsonDecode(response.body);
+          Map<String, dynamic> chain = jsonDecode(response.body)['chain'];
           List<String?> evolutionChain = pokemon.mapEvolves(chain);
           List<Future<Pokemon?>> evolutionFuture = evolutionChain
               .map((String? name) =>
@@ -130,6 +130,4 @@ class PokeApiService {
       throw Exception('Error al obtener el género: $genderName');
     }
   }
-
-// https://pokeapi.co/api/v2/type/fire
 }

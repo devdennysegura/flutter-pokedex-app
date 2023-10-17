@@ -121,7 +121,8 @@ class _PokemonPageState extends ConsumerState<PokemonPage> {
                   ),
                   if (_isExpanded) ...[
                     const SizedBox(height: 24),
-                    PokemonStatsPanel(widget.data),
+                    PokemonEvolutionPanel(widget.data),
+                    // PokemonStatsPanel(widget.data),
                     // PokemonInfoPanel(widget.data),
                   ]
                 ],
@@ -168,7 +169,6 @@ class _PokemonPageState extends ConsumerState<PokemonPage> {
           //   shrinkWrap: true,
           //   itemCount: items.length,
           //   itemBuilder: (context, index) {
-          //     print(index);
           //     Item item = items[index];
           //     return ColoredBox(
           //       color: items[0].color,
