@@ -23,7 +23,7 @@ enum PokeStrength {
   final List<String> strengths;
   const PokeStrength(this.strengths);
 
-  static findPokemonStrengths(PokeTypes type) {
+  static PokeStrength findPokemonStrengths(PokeTypes type) {
     switch (type) {
       case PokeTypes.bug:
         return PokeStrength.normal;

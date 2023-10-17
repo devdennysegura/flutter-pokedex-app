@@ -9,7 +9,7 @@ mixin PokemonAttributesMixin {
     }
     weaknesses = weaknesses.toSet().toList();
     for (PokeTypes type in types) {
-      strengths.addAll(PokeStrength.findPokemonStrengths(type));
+      strengths.add(PokeStrength.findPokemonStrengths(type).name);
     }
     weaknesses.removeWhere((weakness) => strengths.contains(weakness));
     return weaknesses;

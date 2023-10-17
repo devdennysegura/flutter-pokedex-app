@@ -8,7 +8,7 @@ class PokemonGenderRate {
   PokemonGenderRate({required this.name, required this.rate});
 
   PokemonGenderRate.fromJson(Map<String, dynamic> json)
-      : name = json['pokemon_species']['name'].split('-').first,
+      : name = json['pokemon_species']['name'],
         rate = json['rate'];
 
   @override

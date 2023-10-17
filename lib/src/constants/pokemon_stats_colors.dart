@@ -11,7 +11,7 @@ enum PokeStatColor {
   final Color color;
   const PokeStatColor(this.color);
 
-  factory PokeStatColor.type(String statName) {
+  factory PokeStatColor.stat(String statName) {
     switch (statName) {
       case 'hp':
         return PokeStatColor.hp;
