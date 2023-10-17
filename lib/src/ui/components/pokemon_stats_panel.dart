@@ -24,6 +24,7 @@ class PokemonStatsPanel extends StatelessWidget {
             separatorBuilder: (context, index) => const SizedBox(height: 16),
             itemCount: data.stats.keys.length,
           ),
+          const SizedBox(height: 40),
         ],
       ),
     );

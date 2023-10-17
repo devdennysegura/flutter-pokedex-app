@@ -16,6 +16,7 @@ part 'loading_indicator.dart';
 part 'pokedex_header.dart';
 part 'pokedex_pokemon_list.dart';
 part 'pokemon_card.dart';
+part 'pokemon_detail_expandable_card.dart';
 part 'pokemon_evolution_panel.dart';
 part 'pokemon_info_panel.dart';
 part 'pokemon_info_row.dart';

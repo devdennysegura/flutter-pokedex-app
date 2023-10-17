@@ -7,6 +7,7 @@ part 'pokemon_stats_colors.dart';
 part 'pokemon_types.dart';
 part 'pokemon_types_badge_colors.dart';
 part 'pokemon_types_colors.dart';
+part 'pokemon_types_panel_colors.dart';
 part 'pokemon_types_strengths.dart';
 part 'pokemon_types_weakness.dart';
 part 'colors.dart';

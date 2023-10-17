@@ -26,6 +26,7 @@ class PokemonInfoPanel extends StatelessWidget {
           PokemonInfoWeaknessRow(data),
           const SizedBox(height: 16),
           PokemonInfoGendersRow(data),
+          const SizedBox(height: 40),
         ],
       ),
     );

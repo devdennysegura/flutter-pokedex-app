@@ -63,7 +63,4 @@ enum PokeColor {
         return PokeColor.water;
     }
   }
-
-  // @override
-  // String toString() => "The $name water is $tempInFahrenheit F.";
 }
